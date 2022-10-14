@@ -6,40 +6,7 @@ import styles from "./candidate.module.css";
 
 import CustomizedSteppers from "./Stepper";
 
-const data = [
-  {
-    activeStep: 1,
-    daysToGo: "40%",
-    rewardPrice: 2000,
-  },
-  {
-    activeStep: 2,
-    daysToGo: "60%",
-    rewardPrice: 2000,
-  },
-  {
-    activeStep: 4,
-    daysToGo: "0%",
-    rewardPrice: 200,
-  },
-  {
-    activeStep: 3,
-    daysToGo: "100%",
-    rewardPrice: 2000,
-  },
-  {
-    activeStep: 3,
-    daysToGo: "0%",
-    rewardPrice: 1000,
-  },
-  {
-    activeStep: 1,
-    daysToGo: "0%",
-    rewardPrice: 2000,
-  },
-];
-
-const CandidateCard = () => {
+const CandidateCard = ({ data }) => {
   return (
     <>
       {data.map((item) => {
@@ -56,15 +23,15 @@ const CandidateCard = () => {
                   <img width="100%" alt="user" src={User}></img>
                 </Box>
                 <Box sx={{ ml: 1 }}>
-                  <Typography>Anmol Mahajan</Typography>
+                  <Typography>{item.userName}</Typography>
                   <Typography>Sr.Engineer</Typography>
                 </Box>
               </Stack>
             </Grid>
-            <Grid item xs={12} sm={7}>
+            <Grid item xs={9} sm={7}>
               <CustomizedSteppers activeStep={item.activeStep} />
             </Grid>
-            <Grid position="relative" item xs={12} sm={2}>
+            <Grid position="relative" item xs={3} sm={2}>
               <Box width="6rem" position="absolute">
                 <Box display="flex">
                   <Box

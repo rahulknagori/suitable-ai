@@ -2,8 +2,56 @@ import { Typography, Box, Container, Grid } from "@mui/material";
 import styles from "./candidate.module.css";
 import { CustomStack } from "../CustomStyle";
 import CandidateCard from "./CandidateCard";
+import { useEffect, useState } from "react";
 
-const CandidateIndex = () => {
+const data = [
+  {
+    userName: "Anmol Mahajan",
+    activeStep: 1,
+    daysToGo: "40%",
+    rewardPrice: 2000,
+  },
+  {
+    userName: "Hemanth",
+    activeStep: 2,
+    daysToGo: "60%",
+    rewardPrice: 2000,
+  },
+  {
+    userName: "Irshad",
+    activeStep: 4,
+    daysToGo: "0%",
+    rewardPrice: 200,
+  },
+  {
+    userName: "Adarsh",
+    activeStep: 3,
+    daysToGo: "100%",
+    rewardPrice: 2000,
+  },
+  {
+    userName: "Harsha",
+    activeStep: 3,
+    daysToGo: "0%",
+    rewardPrice: 1000,
+  },
+  {
+    userName: "Anuj",
+    activeStep: 1,
+    daysToGo: "0%",
+    rewardPrice: 2000,
+  },
+];
+
+const CandidateIndex = ({ search }) => {
+  const [userData, setUserData] = useState(data);
+  useEffect(() => {
+    const filtered = data.filter((each) =>
+      each.userName.toLowerCase().includes(search.toLowerCase())
+    );
+    setUserData(filtered);
+  }, [search]);
+
   return (
     <Container className={styles["candidate-card-container"]} maxWidth="md">
       <Container className={styles["candidate-main-card"]}>
@@ -43,7 +91,7 @@ const CandidateIndex = () => {
             </Box>
           </Grid>
         </Grid>
-        <CandidateCard />
+        <CandidateCard data={userData} />
       </Container>
     </Container>
   );

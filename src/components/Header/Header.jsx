@@ -2,7 +2,7 @@ import { TextField, Box, Container, Typography } from "@mui/material";
 
 import styles from "./header.module.css";
 
-const Header = () => {
+const Header = ({ search, setSearch }) => {
   return (
     <Box className={styles.header}>
       <Container maxWidth="md">
@@ -16,6 +16,8 @@ const Header = () => {
             id="outlined-basic"
             variant="outlined"
             placeholder="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
         </Box>
       </Container>

@@ -1,11 +1,14 @@
 import Header from "../components/Header/Header";
 import Candidate from "../components/Candidate";
+import { useState } from "react";
 
 const Index = () => {
+  const [search, setSearch] = useState("");
+
   return (
     <>
-      <Header />
-      <Candidate />
+      <Header search={search} setSearch={setSearch} />
+      <Candidate search={search} />
     </>
   );
 };

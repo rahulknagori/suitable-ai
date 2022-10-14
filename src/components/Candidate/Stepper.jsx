@@ -98,6 +98,7 @@ const ColorlibStepIconRoot = styled("div")(({ theme, ownerState }) => ({
   borderRadius: "50%",
   justifyContent: "center",
   alignItems: "center",
+
   ...(ownerState.active && {
     width: 40,
     height: 40,
@@ -118,11 +119,9 @@ const ColorlibStepIconRoot = styled("div")(({ theme, ownerState }) => ({
 function ColorlibStepIcon(props) {
   const { active, completed, className } = props;
 
-  console.log("props.icion", props.icon);
-
   const icons = {
     1: <Done />,
-    2: <img src={User} />,
+    2: <img alt="active-user" className="active-user-img" src={User} />,
   };
 
   return (
