@@ -1,0 +1,46 @@
+.candidate-card-container {
+  margin-top: -4rem;
+}
+
+.candidate-main-card {
+  padding: 2rem 2rem;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  background-color: #ffff;
+}
+
+.candidate-card {
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+}
+
+.days-to-go {
+  position: relative;
+  z-index: 2;
+  margin-top: 0.9rem;
+  margin-left: -4rem;
+  height: 2px;
+  background: #28c728;
+}
+.days-to-go-dashed {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  margin-left: -4rem;
+  margin-top: 0.9rem;
+  height: 2px;
+  background: repeating-linear-gradient(
+    to right,
+    #d3d3d3 0,
+    #d3d3d3 10px,
+    transparent 10px,
+    transparent 12px
+  );
+}
+
+.dollar-img {
+  position: relative;
+  margin-top: 0.3rem;
+  margin-left: -0.4rem;
+}
