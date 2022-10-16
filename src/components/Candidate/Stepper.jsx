@@ -9,7 +9,7 @@ import Check from "@mui/icons-material/Check";
 import StepConnector, {
   stepConnectorClasses,
 } from "@mui/material/StepConnector";
-import { AccountCircle, Done } from "@mui/icons-material";
+import { Done } from "@mui/icons-material";
 
 import User from "../../assets/user.svg";
 
@@ -62,20 +62,27 @@ QontoStepIcon.propTypes = {
   completed: PropTypes.bool,
 };
 
+// the connector or horizontal line that shows the progress of the candidate
+
 const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
     top: 14,
   },
+  // show the connector with these styles when the candidate is on the active/current step
+
   [`&.${stepConnectorClasses.active}`]: {
     [`& .${stepConnectorClasses.line}`]: {
       backgroundColor: "#28c728",
     },
   },
+  // for all the steps the candidate has completed, show the connector with these styles
+
   [`&.${stepConnectorClasses.completed}`]: {
     [`& .${stepConnectorClasses.line}`]: {
       backgroundColor: "#28c728",
     },
   },
+  // general styles for the connector
   [`& .${stepConnectorClasses.line}`]: {
     height: 3,
     border: 0,
@@ -84,6 +91,8 @@ const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
     borderRadius: 1,
   },
 }));
+
+// display these icons depending on the status of steps
 
 const ColorlibStepIconRoot = styled("div")(({ theme, ownerState }) => ({
   backgroundColor:
@@ -98,7 +107,7 @@ const ColorlibStepIconRoot = styled("div")(({ theme, ownerState }) => ({
   borderRadius: "50%",
   justifyContent: "center",
   alignItems: "center",
-
+  // show the icon with these styles when the candidate is on the active/current step
   ...(ownerState.active && {
     width: 40,
     height: 40,
@@ -107,6 +116,7 @@ const ColorlibStepIconRoot = styled("div")(({ theme, ownerState }) => ({
     backgroundColor: "#ffff",
     boxShadow: "0 4px 10px 0 rgba(0,0,0,.25)",
   }),
+  // for all the steps the candidate has completed, show the icon with these styles
   ...(ownerState.completed && {
     backgroundColor: "#28c728",
     border: "none",
@@ -166,11 +176,12 @@ export default function CustomizedSteppers({ activeStep }) {
     <Stack sx={{ width: "100%" }} spacing={4}>
       <Stepper
         alternativeLabel
-        activeStep={activeStep}
-        connector={<ColorlibConnector />}
+        activeStep={activeStep} // this is the active step
+        connector={<ColorlibConnector />} //the connector or horizontal line that shows the progress of the candidate
       >
         {steps.map((label) => (
           <Step key={label}>
+            {/* display these icons depending on the status of the steps */}
             <StepLabel StepIconComponent={ColorlibStepIcon}></StepLabel>
           </Step>
         ))}
